@@ -40,6 +40,7 @@ public class Tests {
         }
         catch (Error error){
             System.out.println("Different data in JSON comparing to XML."+"\n"
+                    +"IN OBJECT NUMBER: "+i+"\n"
                     +"JSON START DATE: "+jsonList.get(i).getStartDate()+"\n"
                     +"XML START DATE: "+xmlList.get(i).getStartDate()+"\n"
                     +"JSON TITLE: " + jsonList.get(i).getGenreTitle()+"\n"
