@@ -179,7 +179,7 @@ public class Parser {
     //List with all TV Programs from JSON we have received as response - as Java objects
     public ArrayList<Program> getJsonObjectsList() throws IOException {
 
-        ArrayList<Program> programs = new ArrayList<Program>();
+        ArrayList<Program> programs = new ArrayList<>();
 
             saveXmlProgram();
 
@@ -221,7 +221,7 @@ public class Parser {
 
         String year, title, description, genreTitle, categoryTitle;
         Date startDate, endDate;
-        ArrayList<Program> programsList = new ArrayList<Program>();
+        ArrayList<Program> programsList = new ArrayList<>();
         JSONObject primaryJson = new JSONObject(xmlToJSon(channelNameForClass));
         JSONObject tv = primaryJson.getJSONObject("tv");
         JSONArray programs = tv.getJSONArray("programme");
