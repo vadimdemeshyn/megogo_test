@@ -23,7 +23,7 @@ public class Verificator {
     //  I DESIGNED IT REFERRING TO CURRENT SERVER'S RESPONSES AND TRIED TO CUSTOMIZE AS MUCH AS POSSIBLE                //
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    Parser parser = new Parser();
+   private Parser parser = new Parser();
 
     public boolean validateJsonSchema() throws IOException {
 
@@ -31,7 +31,7 @@ public class Verificator {
         String text = "";
 
         try {
-            text = Files.toString(new File("src\\test\\resources\\schemas\\schema.json"), Charsets.UTF_8);
+            text = Files.toString(new File("src/test/resources/schemas/schema.json"), Charsets.UTF_8);
         } catch (IOException e) {
             e.printStackTrace();
         }

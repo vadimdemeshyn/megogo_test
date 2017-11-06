@@ -38,60 +38,73 @@ public class Program {
                 +"\n";
 
     }
-
     public String getYear() {
         return year;
     }
-
     public void setYear(String year) {
         this.year = year;
     }
-
     public String getTitle() {
         return title;
     }
-
     public void setTitle(String title) {
         this.title = title;
     }
-
     public String getDescription() {
         return description;
     }
-
     public void setDescription(String description) {
         this.description = description;
     }
-
     public String getGenreTitle() {
         return genreTitle;
     }
-
     public void setGenreTitle(String genreTitle) {
         this.genreTitle = genreTitle;
     }
-
     public String getCategoryTitle() {
         return categoryTitle;
     }
-
     public void setCategoryTitle(String categoryTitle) {
         this.categoryTitle = categoryTitle;
     }
-
     public Date getStartDate() {
         return startDate;
     }
-
     public void setStartDate(Date startDate) {
         this.startDate = startDate;
     }
-
     public Date getEndDate() {
         return endDate;
     }
-
     public void setEndDate(Date endDate) {
         this.endDate = endDate;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(obj == this)
+            return true;
+
+     /* obj ссылается на null */
+
+        if(obj == null)
+            return false;
+
+     /* Удостоверимся, что ссылки имеют тот же самый тип */
+        if(!(getClass() == obj.getClass()))
+            return false;
+        else
+        {
+            Program tmp = (Program) obj;
+            if(
+                    this.getStartDate().compareTo(tmp.getStartDate()) ==0 &&
+                    this.getEndDate().compareTo(tmp.getEndDate()) ==0)
+                return true;
+            else
+                return false;
+        }
+
+
     }
 }

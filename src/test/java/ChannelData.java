@@ -10,14 +10,6 @@ import java.util.Map;
  */
 public class ChannelData {
 
-    public static void main(String[] args) throws IOException {
-        Map<String,String> map1 = new ChannelData().fillRequestEndpointsSMap();
-        for (Map.Entry<String,String> map: map1.entrySet()
-             ) {
-            System.out.println(map.getKey()+" "+map.getValue());
-        }
-    }
-
     String mappingFile = "src/test/resources/csvMappingFiles/mappings.csv";
     BufferedReader bufferedReader;
     String line = "";

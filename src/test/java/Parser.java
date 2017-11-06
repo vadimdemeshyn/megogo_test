@@ -18,13 +18,13 @@ import static io.restassured.RestAssured.given;
  */
 public class Parser {
 
-    ChannelData channelData = new ChannelData();
+    private ChannelData channelData = new ChannelData();
 
-    //Parameter we specify via _D option while running in CLI
-    String channel = System.getProperty("channel");
+    //Parameter we specify via -D option while running in CLI
+    private String channel = System.getProperty("channel");
 
     //String for usage in class
-    String channelNameForClass= "";
+    private String channelNameForClass= "";
 
     private static final String URL = "http://epg.megogo.net/channel";
     private static final String REQUEST = "?external_id";
@@ -276,14 +276,6 @@ public class Parser {
                 programsList.add(new Program(year,title,description,genreTitle,categoryTitle,startDate,endDate));
             }
         }
-
-//        File file = new File("xyz.txt");
-//        PrintStream printStreamToFile = new PrintStream(file);
-//        System.setOut(printStreamToFile);
-//        for (Program p: programsList
-//                ) {
-//            System.out.println(p);
-//        }
 
         return programsList;
     }

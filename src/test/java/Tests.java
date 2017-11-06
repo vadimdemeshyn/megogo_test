@@ -12,8 +12,12 @@ public class Tests {
     @Test
     public void verifyResponseMatchesXML() throws IOException {
 
+
+
         Parser parser = new Parser();
         Verificator verificator = new Verificator();
+
+
         int i = 0;
 
         List<Program> jsonList = parser.getJsonObjectsList();
@@ -27,52 +31,22 @@ public class Tests {
             System.out.println("JSON list size differs from XML list size");
         }
 
-        //Verify titles
-        try {
-            for (i = 0; i <xmlList.size() ; i++) {
-                Assert.assertEquals(xmlList.get(i).getTitle(), jsonList.get(i).getTitle());
-            }
-            System.out.println("Running class "+Thread.currentThread().getStackTrace()[1].getClassName()+
-                    " .Running method: "+Thread.currentThread().getStackTrace()[1].getMethodName()+" .Titles are equal");
-        }
-        catch (Error error) {
-            System.out.println("Running class " + Thread.currentThread().getStackTrace()[1].getClassName() +
-                    " .Running method: " + Thread.currentThread().getStackTrace()[1].getMethodName() +
-                    ". Different data in JSON comparing to XML." + "\n"
-                    + "JSON title: " + jsonList.get(i).getTitle() + "\n"
-                    + "XML title: " + xmlList.get(i).getTitle());
-            throw error;
-        }
-
-        //Verify start dates - done for better logging if smth happened wrong
-        try {
-            for (i = 0; i < jsonList.size(); i++) {
-                Assert.assertTrue(jsonList.get(i).getStartDate().compareTo(xmlList.get(i).getStartDate()) ==0);
-
-            }
-            System.out.println("Running class "+Thread.currentThread().getStackTrace()[1].getClassName()+
-                    " .Running method: "+Thread.currentThread().getStackTrace()[1].getMethodName()+
-                    ". Dates in XML list and JSON request are similar");
-        }
-        catch (Error error){
-            System.out.println("Running class "+Thread.currentThread().getStackTrace()[1].getClassName()+
-                    " .Running method: "+Thread.currentThread().getStackTrace()[1].getMethodName()+
-                    ". Different data in JSON comparing to XML."+"\n"
-            +"JSON START DATE: "+jsonList.get(i).getStartDate()+"\n"
-            +"XML START DATE: "+xmlList.get(i).getStartDate());
-            throw error;
-        }
-
         //Verify end dates - done for better logging if smth happened wrong
         try {
             for (i = 0; i < jsonList.size(); i++) {
-                Assert.assertFalse(jsonList.get(i).getEndDate() == xmlList.get(i).getEndDate());
+                Assert.assertTrue(jsonList.get(i).equals(xmlList.get(i)));
             }
+            System.out.println("Objects are the same");
         }
         catch (Error error){
             System.out.println("Different data in JSON comparing to XML."+"\n"
                     +"JSON START DATE: "+jsonList.get(i).getStartDate()+"\n"
-                    +"XML START DATE: "+xmlList.get(i).getStartDate());
+                    +"XML START DATE: "+xmlList.get(i).getStartDate()+"\n"
+                    +"JSON TITLE: " + jsonList.get(i).getGenreTitle()+"\n"
+                    +"XML TITLE: " + xmlList.get(i).getGenreTitle()+"\n"
+                    +"JSON END DATE: "+jsonList.get(i).getEndDate()+"\n"
+                    +"XML END DATE: "+xmlList.get(i).getEndDate()+"\n"
+            );
             throw error;
         }
 
